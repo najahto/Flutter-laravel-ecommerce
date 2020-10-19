@@ -22,8 +22,12 @@
                 <a href="index.html" class="easion-logo"><i class="fas fa-sun"></i> <span>Admin</span></a>
             </header>
             <nav class="dash-nav-list">
-                <a href="index.html" class="dash-nav-item">
-                    <i class="fas fa-home"></i> Dashboard </a>
+                <a href="#" class="dash-nav-item">
+                    <i class="fas fa-home"></i> Dashboard 
+                </a>
+                <a href="#" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Categories 
+                </a>
             </nav>
         </div>
         <div class="dash-app">
@@ -56,7 +60,7 @@
                 </div>
             </header>
             <main class="dash-content">
-              @yield('content')
+                @yield('content')
             </main>
         </div>
     </div>
@@ -67,7 +71,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
     <script src="{{asset('../js/easion.js')}}"></script>
-    @yield('style')
+    @yield('script')
 </body>
 
 </html>

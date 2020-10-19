@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('category.index')->with('categories', $categories);
     }
 
     /**
@@ -24,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('category.create');
     }
 
     /**
@@ -35,7 +37,26 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $category = new Category();
+        $category->name = $request->input('name');
+        $category->icon = " ";
+        $category->user_id = Auth::id();
+        if ($category->save()) {
+            $photo = $request->file('icon');
+            if ($photo != null) {
+                $ext = $photo->getClientOriginalExtension();
+                $fileName = rand(10000, 50000) . '.' . $ext;
+                if ($ext == 'jpg' || $ext == 'png') {
+                    if ($photo->move(public_path(), $fileName)) {
+                        $category = Category::find($category->id);
+                        $category->icon = url('/') . '/' . $fileName;
+                        $category->save();
+                    }
+                }
+            }
+            return redirect()->back()->with('success', 'Saved successfully!');
+        }
+        return redirect()->back()->with('failed', 'Could not save!');
     }
 
     /**
@@ -55,9 +76,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('category.edit')->with('category', $category);
     }
 
     /**
@@ -67,9 +89,28 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category->name = $request->input('name');
+        $category->icon = "";
+        $category->user_id = Auth::id();
+        if ($category->save()) {
+            $photo = $request->file('icon');
+            if ($photo != null) {
+                $ext = $photo->getClientOriginalExtension();
+                $fileName = rand(10000, 50000) . '.' . $ext;
+                if ($ext == 'jpg' || $ext == 'png') {
+                    if ($photo->move(public_path(), $fileName)) {
+                        $category = Category::find($category->id);
+                        $category->icon = url('/') . '/' . $fileName;
+                        $category->save();
+                    }
+                }
+            }
+            return redirect()->back()->with('success', 'Updated successfully!');
+        }
+        return redirect()->back()->with('failed', 'Could not update!');
     }
 
     /**
@@ -78,8 +119,12 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        //
+        if (Category::destroy($id)) {
+            return redirect()->back()->with('deleted', 'Deleted successfully');
+        }
+        
+        return redirect()->back()->with('delete-failed', 'Could not delete');
     }
 }
