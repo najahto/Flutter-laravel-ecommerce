@@ -26,13 +26,13 @@
                     <i class="fas fa-home"></i> Dashboard 
                 </a>
                 <a href="{{ route('categories.index') }}" class="dash-nav-item">
-                    <i class="fas fa-table"></i> Categories 
+                    <i class="fas fa-ellipsis-h"></i> Categories 
                 </a>
                 <a href="{{ route('products.index') }}" class="dash-nav-item">
-                    <i class="fas fa-table"></i> Products 
+                    <i class="fas fa-ellipsis-h"></i> Products 
                 </a>
                 <a href="{{ route('sliders.index') }}" class="dash-nav-item">
-                    <i class="fas fa-table"></i> Sliders 
+                    <i class="fas fa-ellipsis-h"></i> Sliders 
                 </a>
             </nav>
         </div>

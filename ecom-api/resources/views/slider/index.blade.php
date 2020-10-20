@@ -1,4 +1,4 @@
-@extends('layouts.tamplate')
+@extends('layouts.template')
 
 @section('style')
 <style>
