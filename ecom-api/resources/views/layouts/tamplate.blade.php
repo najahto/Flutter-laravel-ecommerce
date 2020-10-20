@@ -25,8 +25,11 @@
                 <a href="#" class="dash-nav-item">
                     <i class="fas fa-home"></i> Dashboard 
                 </a>
-                <a href="#" class="dash-nav-item">
+                <a href="{{ route('categories.index') }}" class="dash-nav-item">
                     <i class="fas fa-table"></i> Categories 
+                </a>
+                <a href="{{ route('products.index') }}" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Products 
                 </a>
             </nav>
         </div>
