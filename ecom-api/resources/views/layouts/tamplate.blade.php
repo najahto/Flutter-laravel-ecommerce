@@ -31,6 +31,9 @@
                 <a href="{{ route('products.index') }}" class="dash-nav-item">
                     <i class="fas fa-table"></i> Products 
                 </a>
+                <a href="{{ route('sliders.index') }}" class="dash-nav-item">
+                    <i class="fas fa-table"></i> Sliders 
+                </a>
             </nav>
         </div>
         <div class="dash-app">
