@@ -48,7 +48,7 @@ class SliderController extends Controller
                 if ($ext == 'jpg' || $ext == 'png') {
                     if ($photo->move(public_path(), $fileName)) {
                         $slider = Slider::find($slider->id);
-                        $slider->image_url = url('/') . '/' . $fileName;
+                        $slider->image_url = $fileName;
                         $slider->save();
                     }
                 }
@@ -102,7 +102,7 @@ class SliderController extends Controller
                 if ($ext == 'jpg' || $ext == 'png') {
                     if ($photo->move(public_path(), $fileName)) {
                         $slider = Slider::find($slider->id);
-                        $slider->image_url = url('/') . '/' . $fileName;
+                        $slider->image_url = $fileName;
                         $slider->save();
                     }
                 }

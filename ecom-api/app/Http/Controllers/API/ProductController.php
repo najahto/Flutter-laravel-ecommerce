@@ -84,4 +84,9 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function getHotProducts(){
+        $hotProducts = Product::where('is_hot_product',1)->get();
+        return ProductResource::collection($hotProducts);
+    }
 }

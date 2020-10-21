@@ -49,7 +49,7 @@ class CategoryController extends Controller
                 if ($ext == 'jpg' || $ext == 'png') {
                     if ($photo->move(public_path(), $fileName)) {
                         $category = Category::find($category->id);
-                        $category->icon = url('/') . '/' . $fileName;
+                        $category->icon = $fileName;
                         $category->save();
                     }
                 }
@@ -103,7 +103,7 @@ class CategoryController extends Controller
                 if ($ext == 'jpg' || $ext == 'png') {
                     if ($photo->move(public_path(), $fileName)) {
                         $category = Category::find($category->id);
-                        $category->icon = url('/') . '/' . $fileName;
+                        $category->icon = $fileName;
                         $category->save();
                     }
                 }

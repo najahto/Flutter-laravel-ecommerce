@@ -56,7 +56,7 @@ class ProductController extends Controller
                 if ($ext == 'jpg' || $ext == 'png') {
                     if ($photo->move(public_path(), $fileName)) {
                         $product = Product::find($product->id);
-                        $product->photo = url('/') . '/' . $fileName;
+                        $product->photo = $fileName;
                         $product->save();
                     }
                 }
@@ -115,7 +115,7 @@ class ProductController extends Controller
                 if($ext == 'jpg' || $ext == 'png'){
                     if($photo->move(public_path(), $fileName)){
                         $product = Product::find($product->id);
-                        $product->photo = url('/') . '/' . $fileName;
+                        $product->photo = $fileName;
                         $product->save();
                     }
                 }

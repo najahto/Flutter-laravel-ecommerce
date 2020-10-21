@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->double('price');
             $table->string('photo');
-            $table->string('discount');
+            $table->double('discount');
             $table->boolean('is_hot_product');
             $table->boolean('is_new_arrival');
             $table->integer('category_id');
