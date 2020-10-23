@@ -7,4 +7,8 @@ class Repository{
   httpGet(String api ) async{
     return await http.get(_baseUrl + "/" + api);
   }
+
+  httpGetById(String api ,$id) async{
+    return await http.get(_baseUrl + "/" + api + "/" + $id.toString());
+  }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 
 Widget carouselSlider(items) => Padding(
-  padding: EdgeInsets.only(left: 10, right: 10),
+  padding: EdgeInsets.only(left: 10, right: 10 ,top: 10,bottom: 5),
   child: Container(
     height: 150.0,
     width: double.infinity,

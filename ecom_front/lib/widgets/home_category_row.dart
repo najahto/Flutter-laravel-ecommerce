@@ -21,18 +21,23 @@ class _CategoryRowState extends State<CategoryRow> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  'Categories',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 22.0,
-                    color: Color(0xFF0b090a),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                  color: Colors.red,
+                  child:Text(
+                    'CATEGORIES',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 16.0,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
+
                 Text(
-                  'See all',
+                  'SEE ALL',
                   style: TextStyle(
-                    color: Color(0xFFA4161A),fontWeight: FontWeight.w400,
+                    color: Colors.red,fontWeight: FontWeight.w400,
                     fontSize: 16,
                   ),
                 ),
@@ -48,9 +53,10 @@ class _CategoryRowState extends State<CategoryRow> {
               scrollDirection: Axis.horizontal,
               itemCount: this.widget.categoryList.length,
               itemBuilder: (context, index) {
+                var id = this.widget.categoryList[index].id;
                 var icon = this.widget.categoryList[index].icon;
                 var name = this.widget.categoryList[index].name;
-                return HomeCategoryItem(icon, name);
+                return HomeCategoryItem(id, name,icon);
               },
               separatorBuilder: (context, index) {
                 return SizedBox(

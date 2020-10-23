@@ -1,14 +1,15 @@
 import 'package:ecom_front/models/product.dart';
-import 'package:ecom_front/widgets/home_hot_product.dart';
+import 'package:ecom_front/widgets/product_item.dart';
 import 'package:flutter/material.dart';
 
-class HomeHotProducts extends StatefulWidget {
+class HomeProducts extends StatefulWidget {
+  final String name;
   final List<Product> productList;
-  HomeHotProducts({this.productList});
+  HomeProducts({this.productList,this.name});
   @override
-  _HomeHotProductsState createState() => _HomeHotProductsState();
+  _HomeProductsState createState() => _HomeProductsState();
 }
-class _HomeHotProductsState extends State<HomeHotProducts> {
+class _HomeProductsState extends State<HomeProducts> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,18 +20,22 @@ class _HomeHotProductsState extends State<HomeHotProducts> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Text(
-              'Hot Products',
-              style: TextStyle(
-                fontWeight: FontWeight.w500,
-                fontSize: 22.0,
-                color: Color(0xFF0b090a),
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+              color: Colors.red,
+              child:Text(
+                this.widget.name,
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  fontSize: 16.0,
+                  color: Colors.white,
+                ),
               ),
             ),
             Text(
-              'See all',
+              'SEE ALL',
               style: TextStyle(
-                color: Color(0xFFA4161A),fontWeight: FontWeight.w400,
+                color: Colors.red,fontWeight: FontWeight.w400,
                 fontSize: 16,
               ),
             )
@@ -46,11 +51,11 @@ class _HomeHotProductsState extends State<HomeHotProducts> {
               scrollDirection: Axis.horizontal,
               itemCount: this.widget.productList.length,
               itemBuilder: (context, index) {
-                var photo = this.widget.productList[index].photo;
-                var name = this.widget.productList[index].name;
-                var price = this.widget.productList[index].price;
-                var discount = this.widget.productList[index].discount;
-                return HomeHotProduct(name,photo,price,discount);
+                // var photo = this.widget.productList[index].photo;
+                // var name = this.widget.productList[index].name;
+                // var price = this.widget.productList[index].price;
+                // var discount = this.widget.productList[index].discount;
+                return ProductItem(this.widget.productList[index]);
               },
             separatorBuilder: (context, index) {
               return SizedBox(

@@ -89,4 +89,15 @@ class ProductController extends Controller
         $hotProducts = Product::where('is_hot_product',1)->get();
         return ProductResource::collection($hotProducts);
     }
+
+    public function getNewArrivals(){
+        $newArrival = Product::where('is_new_arrival',1)->get();
+        return ProductResource::collection($newArrival);
+    }
+
+    public function getProductsByCategories($categoreyId){
+        $products = Product::where('category_id',$categoreyId)->get();
+        return ProductResource::collection($products);
+    }
+
 }
