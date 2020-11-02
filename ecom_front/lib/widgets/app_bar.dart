@@ -3,6 +3,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Widget AppBarWidget() {
   return AppBar(
+    iconTheme: IconThemeData(
+      color: Colors.black,
+    ),
     backgroundColor: Colors.white,
     elevation: 0.0,
     centerTitle: true,
@@ -16,7 +19,7 @@ Widget AppBarWidget() {
         onPressed: () {
         },
         icon: Icon(FontAwesomeIcons.opencart),
-        color: Color(0xFF323232),
+        color: Colors.black,
       ),
     ],
   );

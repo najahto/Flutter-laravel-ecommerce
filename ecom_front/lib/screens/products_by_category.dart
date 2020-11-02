@@ -53,7 +53,7 @@ class _ProductsByCategoryState extends State<ProductsByCategory> {
       appBar: AppBarWidget(),
       body: Container(
         padding: EdgeInsets.all(16),
-        color: Colors.white,
+
         child: Column(
           children: <Widget>[
             Align(
@@ -61,7 +61,7 @@ class _ProductsByCategoryState extends State<ProductsByCategory> {
               child: Container(
                 padding: EdgeInsets.only(bottom: 11),
                 child: Text(
-                  widget.categoryName,
+                  widget.categoryName.toUpperCase(),
                   style: TextStyle(
                     color: Colors.black54,
                     fontSize: 22,

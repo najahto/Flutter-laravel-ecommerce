@@ -15,15 +15,20 @@ class HomeCategoryItem extends StatefulWidget {
 class _HomeCategoryItemState extends State<HomeCategoryItem> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 10, right: 10),
+    return Container(
+      padding: EdgeInsets.only(top: 5, bottom: 5,left: 5, right: 5),
       child: InkWell(
         onTap:(){
           Navigator.push(context, MaterialPageRoute(builder: (context) => ProductsByCategory(widget.categoryId,widget.categoryName)));
         },
         child: Card(
-          elevation: 1,
+          elevation: 0,
           color: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(8.0),
+            ),
+          ),
           child: Column(
             children: <Widget>[
               Image.network(widget.categoryIcon,width: 120, height: 70,),
